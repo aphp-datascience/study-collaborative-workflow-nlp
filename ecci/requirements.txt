@@ -1,0 +1,11 @@
+altair
+confection
+#edsnlp @ git+https://gitlab.eds.aphp.fr/equipedatascience/ecci_edsnlp.git@comorb_last_version
+#labeltool @ git+https://gitlab.eds.aphp.fr/datasciencetools/labeltool.git@final_validation
+#labeltool==0.1.4
+openpyxl
+pre-commit
+pyAesCrypt==6.0.0
+python-gitlab
+stringcase
+typer

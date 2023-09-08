@@ -1,0 +1,61 @@
+# spaCy data
+/corpus
+/training
+/packages
+/assets
+/project.lock
+
+# Env/IDE
+.venv
+.vscode
+
+# Cache dirs
+__pycache__
+.mypy_cache
+.ipynb_checkpoints
+
+# Data
+*.ipynb
+*.csv
+*.pkl
+*.jsonl
+*.html
+*.log
+*.xml
+*.ckpt
+
+#CSE-specific data
+/cse180032
+/cse200055
+/cse200093
+/data_bkp
+
+# Environments
+*.tar.gz
+
+# Ignore IntelliJ IDEA
+.idea/
+*.iml
+
+# Documentation
+_build/
+
+# Python
+*.egg-info
+build
+logs
+*log*
+.hypothesis
+.coverage*
+
+# Models
+models/
+*.dill
+data/
+data_*
+
+# build
+dist/
+
+# misc
+/get.py

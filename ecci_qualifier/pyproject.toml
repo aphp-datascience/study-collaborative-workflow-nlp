@@ -1,0 +1,91 @@
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--durations=0",
+  "--strict-markers",
+  "--doctest-modules",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::UserWarning",
+]
+log_cli = "True"
+markers = [
+  "slow: slow tests",
+]
+minversion = "6.0"
+testpaths = "tests/"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: nocover",
+    "raise NotImplementedError",
+    "raise NotImplementedError()",
+    "if __name__ == .__main__.:",
+]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    "__pycache__",
+    "*.ipynb",
+    "*.ipynb_checkpoints",
+]
+ignore = ["E501"]
+line-length = 100
+select = [
+    "E",
+    "F",
+    "W",
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = [
+    "F401",
+    "F811",
+]
+
+[tool.poetry]
+name = "ecci-qualifier"
+version = "1.0.0"
+description = "Bert-based qualifier for the eCCI project"
+readme = "README.md"
+repository = "https://gitlab.eds.aphp.fr/datasciencetools/ecci-qualification"
+authors = ["Thomas PETIT-JEAN <thomas.petitjean@aphp.fr>"]
+exclude = [".venv", "venv", "scripts", "notebooks"]
+include = ["ecci_qualifier/data/*"]
+
+[[tool.poetry.source]]
+name = "dst"
+url = "https://gitlab.eds.aphp.fr/api/v4/groups/497/-/packages/pypi/simple/"
+priority = "supplemental"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[tool.poetry.dependencies]
+python = "~3.7.1"
+edsnlp = "^0.7.0"
+edsml = {version = "==0.2.1", source = "dst"}
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mike = "^1.1.2"
+mkdocs-bibtex = "^2.0.3"
+mkdocs-gen-files = "^0.3.4"
+mkdocs-literate-nav = "^0.4.1"
+mkdocs-material = "^8.2.8"
+mkdocstrings = "^0.18.1"
+mkdocstrings-python = "^0.6.6"
+mkdocs-glightbox = "^0.1.6"
+mkdocs-autorefs = "^0.4.1"
+
+[tool.poetry.plugins."spacy_factories"]
+"ecci-qualifier" = "ecci_qualifier.spacy.factory:create_component"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

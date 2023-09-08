@@ -1,0 +1,6 @@
+[virtualenvs]
+create = false
+in-project = true
+
+[repositories.gitlab]
+url = "https://gitlab.eds.aphp.fr/api/v4/projects/1785/packages/pypi/"

@@ -1,0 +1,91 @@
+site_name: EDS-Charlson-Qualifier
+
+repo_url: https://gitlab.eds.aphp.fr/datasciencetools/ecci-qualification
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.tracking
+    - navigation.instant
+    - navigation.indexes
+    # - navigation.tabs
+    - navigation.top
+    - content.code.annotate
+
+nav:
+  - index.md
+  - usage.md
+  - training.md
+  - reproducibility.md
+  - Code Reference: reference/
+  - changelog.md
+
+extra:
+  version:
+    provider: mike
+    default: latest
+
+extra_css:
+  - assets/stylesheets/extra.css
+  - assets/termynal/termynal.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
+  - assets/termynal/termynal.js
+
+hooks:
+    - docs/scripts/plugin.py
+
+plugins:
+  - search
+  - bibtex:
+      bib_file: "docs/references.bib"
+  - autorefs
+  - mkdocstrings:
+      custom_templates: docs/assets/templates
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            docstring_section_style: spacy
+            heading_level: 2
+            members_order: source
+            show_root_toc_entry: false
+  - mike
+
+watch:
+  - changelog.md
+  - ecci_qualifier
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ['docs/', '.']
+      check_paths: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - footnotes
+  - md_in_html
+  - attr_list
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

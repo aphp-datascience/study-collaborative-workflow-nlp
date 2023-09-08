@@ -1,0 +1,8 @@
+mike
+mkdocs-bibtex
+mkdocs-gen-files
+mkdocs-literate-nav
+mkdocs-material
+mkdocstrings
+mkdocstrings-python
+mkdocs-autorefs
